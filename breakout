@@ -1,0 +1,13 @@
+//@marketjz
+//@Version=5
+//Breakout indicator for ANY stock,commodity,currency.
+indicator(title="Breakout", overlay=true)
+
+// Gets my long breakout price and my short breakout price
+longBO = input.price(title="Long BO", defval=0.0, confirm=true)
+shortBO = input.price(title="Short BO", defval=0.0, confirm=true)
+offset = input.int(title="Offset", defval=5)
+
+// Plots
+plot(longBO > 0 ? longBO : na, title="Long BO", color=color.green, offset=offset)
+plot(shortBO > 0 ? shortBO : na, title="Short BO", color=color.red, offset=offset)
